@@ -61,8 +61,10 @@ def pivot_table(
     if values_passed:
         if is_list_like(values):
             values = list(values)
-            
-            # fix bug where values=['c'] returns the whole table with multi-level columns, while values='c' doesn't
+
+            # fix bug where values=['c'] returns the whole table 
+            # with multi-level columns, 
+            # while values='c' returns the expected one-column pivot
             values_multi = len(values) != 1
         else:
             values_multi = False
